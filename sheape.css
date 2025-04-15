@@ -1,0 +1,238 @@
+.bgshape1 {
+  width: 300px; /* or any value you like */
+  height: 300px;
+  /* border-radius: 50%; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgshape2 {
+  width: 300px; /* or any value you like */
+  height: 300px;
+  /* border-radius: 50%; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.sinhala-letter {
+  font-size: 50px;
+  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', serif;
+  text-align: center;
+  margin-top: 50px;
+  overflow: hidden;
+  color: aliceblue;
+}
+
+
+
+.shape {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle {
+  /* background: #4CAF50; */
+  border-radius: 50%;
+}
+
+
+
+.diamond {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #ffe066, #ffa600);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  margin: 20px;
+}
+
+
+.octagon {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, #ff6, #f90);
+  clip-path: polygon(
+    30% 0%, 70% 0%,
+    100% 30%, 100% 70%,
+    70% 100%, 30% 100%,
+    0% 70%, 0% 30%
+  );
+  margin: 20px;
+}
+
+.star {
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(from 0deg, #fff700, #ff8c00, #fff700);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%,
+    68% 57%, 79% 91%, 50% 70%,
+    21% 91%, 32% 57%, 2% 35%,
+    39% 35%
+  );
+}
+
+.petal {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(ellipse at center, #ff66cc, #cc3399);
+  clip-path: ellipse(50% 70% at 50% 50%);
+  margin: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .thoran-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.shape {
+  width: 120px;
+  height: 120px;
+}
+
+.diamond {
+  background: radial-gradient(circle, #ffe066, #ffa600);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.octagon {
+  background: linear-gradient(45deg, #ff6, #f90);
+  clip-path: polygon(
+    30% 0%, 70% 0%,
+    100% 30%, 100% 70%,
+    70% 100%, 30% 100%,
+    0% 70%, 0% 30%
+  );
+}
+
+.star {
+  background: conic-gradient(from 0deg, #fff700, #ff8c00, #fff700);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%,
+    68% 57%, 79% 91%, 50% 70%,
+    21% 91%, 32% 57%, 2% 35%,
+    39% 35%
+  );
+}
+
+.petal {
+  background: radial-gradient(ellipse at center, #ff66cc, #cc3399);
+  clip-path: ellipse(50% 70% at 50% 50%);
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+.thoran-wrapper {
+  position: relative;
+  width: 900px;
+  height: 900px;
+  margin: 0 auto;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd700, #ffa500);
+  /* box-shadow: 0 0 20px #ffaa00; */
+}
+
+.center-circle {
+  width: 450px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: radial-gradient(circle, #ffff99, #ffcc00);
+  box-shadow: 0 0 40px #ffee00; */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.small-circle {
+  width: 240px;
+  height: 240px;
+  /* background: radial-gradient(circle, #ffcc66, #ff9900);
+  box-shadow: 0 0 20px #ffcc00; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Reposition the circles farther out due to increased size */
+.circle-1  { top: 2%;   left: 50%; transform: translate(-50%, 0); }
+.circle-2  { top: 25%;  left: 76%; transform: translate(-50%, -50%); }
+.circle-3  { top: 50%;  left: 100%; transform: translate(-100%, -50%); }
+.circle-4  { top: 76%;  left: 77%; transform: translate(-50%, -50%); }
+.circle-5  { top: 98%;  left: 50%; transform: translate(-50%, -100%); }
+.circle-6  { top: 75%;  left: 24%; transform: translate(-50%, -50%); }
+.circle-7  { top: 50%;  left: 0%;  transform: translate(0, -50%); }
+.circle-8  { top: 24%;  left: 24%; transform: translate(-50%, -50%); }
+
+
+.bottom-rectangle {
+  position: absolute;
+  bottom: -80px; /* Adjust this based on size */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 190px;
+  background: linear-gradient(to right, #ff6600, #ffaa00);
+  border-radius: 20px;
+  /* box-shadow: 0 0 20px #ffaa00; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.banner-text {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.bottom-img {
+  height: 80px; /* Adjust height as needed */
+  max-width: 90%;
+  object-fit: contain;
+}

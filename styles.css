@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    background-color: #111;
+  }
+  
+  .pixel-container {
+    display: grid;
+    /* grid-template-columns: repeat(11, 11px);
+    grid-template-rows: repeat(11, 11px); */
+    gap: 1px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #111;
+    border-radius: 30%;
+    transition: 0.1s;
+  }
+  
+  
+  /* Optional: For a glowing effect when activated */
+  .dot.active {
+    background-color: #0f0;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+  }
+  
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+  }
+  
+  .speed-control input {
+    margin: 0 10px;
+  }
+  
+  button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #444;
+  }
+  
+  .label {
+    font-size: 16px;
+  }
+
+
+  
+
+
+
+
+
+  
+  /* CSS animations for other patterns */
+  @keyframes pattern1 {
+    0% { background-color: white; }
+    25% { background-color: green; }
+    50% { background-color: yellow; }
+    75% { background-color: blue; }
+    100% { background-color: red; }
+  }
+  
+  @keyframes pattern2 {
+    0%, 20% { background-color: red; }
+    40% { background-color: blue; }
+    60% { background-color: yellow; }
+    80% { background-color: green; }
+    100% { background-color: white; }
+  }
+  /* Diagonal wave from top-left */
+  .dot:nth-child(odd) {
+    --delay: calc((var(--row) + var(--col)) * 0.05s);
+  }
+  .dot:nth-child(even) {
+    --delay: calc((var(--row) - var(--col)) * 0.05s);
+  }
+  
+  /* Expanding ripple from center */
+  @keyframes pattern3 {
+    0% { background-color: green; }
+    30% { background-color: yellow; }
+    60% { background-color: red; }
+    100% { background-color: white; }
+  }
+  
+  /* Wave from bottom right */
+  @keyframes pattern4 {
+    0% { background-color: blue; }
+    25% { background-color: white; }
+    50% { background-color: green; }
+    75% { background-color: yellow; }
+    100% { background-color: red; }
+  }
+  
+  /* Random flash */
+  @keyframes pattern5 {
+    0% { background-color: white; }
+    20% { background-color: red; }
+    40% { background-color: blue; }
+    60% { background-color: green; }
+    80% { background-color: yellow; }
+    100% { background-color: white; }
+  }
+  
+  /* Spiral-like effect using mod */
+  @keyframes pattern6 {
+    0% { background-color: yellow; }
+    25% { background-color: green; }
+    50% { background-color: red; }
+    75% { background-color: blue; }
+    100% { background-color: white; }
+  }
+  
+  /* Horizontal wave */
+  @keyframes pattern7 {
+    0% { background-color: red; }
+    20% { background-color: green; }
+    40% { background-color: white; }
+    60% { background-color: yellow; }
+    100% { background-color: blue; }
+  }
+  
+  /* Vertical wave */
+  @keyframes pattern8 {
+    0% { background-color: blue; }
+    25% { background-color: yellow; }
+    50% { background-color: white; }
+    75% { background-color: red; }
+    100% { background-color: green; }
+  }
+  
+  /* Center pulse */
+  @keyframes pattern9 {
+    0% { background-color: green; }
+    30% { background-color: white; }
+    60% { background-color: red; }
+    100% { background-color: blue; }
+  }
+  
+  /* Flicker - short duration pulse */
+  @keyframes pattern10 {
+    0% { background-color: white; }
+    10% { background-color: yellow; }
+    20% { background-color: green; }
+    30% { background-color: red; }
+    40% { background-color: blue; }
+    100% { background-color: white; }
+  }
+  
+
+  /* pattern11 - Checkerboard flicker */
+@keyframes pattern11 {
+  0%, 100% { background-color: red; }
+  25% { background-color: yellow; }
+  50% { background-color: white; }
+  75% { background-color: green; }
+}
+.dot:nth-child(even) {
+  animation-timing-function: ease-in-out;
+}
+
+/* pattern12 - Outer to inner ring pulse */
+@keyframes pattern12 {
+  0% { background-color: blue; }
+  30% { background-color: green; }
+  60% { background-color: red; }
+  100% { background-color: white; }
+}
+
+/* pattern13 - Spiral sweep effect */
+@keyframes pattern13 {
+  0% { background-color: white; }
+  20% { background-color: yellow; }
+  40% { background-color: green; }
+  60% { background-color: red; }
+  80% { background-color: blue; }
+  100% { background-color: white; }
+}
+
+/* pattern14 - Fast flicker cascade */
+@keyframes pattern14 {
+  0% { background-color: green; }
+  10% { background-color: white; }
+  20% { background-color: red; }
+  30% { background-color: blue; }
+  40% { background-color: yellow; }
+  100% { background-color: green; }
+}
+
+/* pattern15 - Border-inward flash */
+@keyframes pattern15 {
+  0% { background-color: red; }
+  25% { background-color: white; }
+  50% { background-color: yellow; }
+  75% { background-color: green; }
+  100% { background-color: blue; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
