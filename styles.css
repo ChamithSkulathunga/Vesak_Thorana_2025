@@ -9,10 +9,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color: #111;
+    background-image: url('https://raw.githubusercontent.com/ChamithSkulathunga/Vesak_Thorana_2025/refs/heads/main/Image/bg.jpg');
 
-    background: #000; */
-    background-image: url('./image/bg.jpg');
+    /* background-image: url('./image/bg.jpg'); */
 
     background-size: 100%;
     background-repeat: no-repeat;
