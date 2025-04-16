@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh;
+    height: 100vh;
     background-color: #111;
   }
   
@@ -24,11 +24,23 @@
     box-sizing: border-box;
   }
 
+  .pixel-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 50%;
+  }
+  
+  
+
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: #111;
-    border-radius: 30%;
+    border-radius: 50%;
     transition: 0.1s;
   }
   
@@ -41,8 +53,8 @@
   
   .controls {
     position: fixed;
-    bottom: 20px;
-    left: 50%;
+    bottom: 10px;
+    left: 40%;
     transform: translateX(-50%);
     color: white;
   }

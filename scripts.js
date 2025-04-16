@@ -5,7 +5,7 @@ const speedValue = document.getElementById('speedValue');
 const patterns = [
   'pattern1', 'pattern2', 'pattern3', 'pattern4', 'pattern5',
   'pattern6', 'pattern7', 'pattern8', 'pattern9', 'pattern10',
-  'pattern11', 'pattern12', 'pattern13', 'pattern14', 'pattern15', 'sinhalaWish'
+  'pattern11', 'pattern12', 'pattern13', 'pattern14', 'pattern15'
 ];
 
 let currentPattern = 0;
@@ -91,45 +91,45 @@ function applyCSSPattern(patternName, duration) {
   });
 }
 
-function applySinhalaWishPattern() {
-  const dots = document.querySelectorAll('.dot');
-  const cols = Math.floor(Math.sqrt(dots.length)); // use same logic as grid creation
-  const rows = Math.floor(dots.length / cols);
+// function applySinhalaWishPattern() {
+//   const dots = document.querySelectorAll('.dot');
+//   const cols = Math.floor(Math.sqrt(dots.length)); // use same logic as grid creation
+//   const rows = Math.floor(dots.length / cols);
 
-  const message = 'සුභ වෙසක් මංගල්‍යයක් වේවා';
+//   const message = 'සුභ වෙසක් මංගල්‍යයක් වේවා';
 
-  // Clear grid
-  dots.forEach(dot => {
-    dot.style.animation = 'none';
-    dot.style.backgroundColor = 'black';
-  });
+//   // Clear grid
+//   dots.forEach(dot => {
+//     dot.style.animation = 'none';
+//     dot.style.backgroundColor = 'black';
+//   });
 
-  // Use Canvas to draw text and map pixels to grid
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = cols;
-  canvas.height = rows;
+//   // Use Canvas to draw text and map pixels to grid
+//   const canvas = document.createElement('canvas');
+//   const ctx = canvas.getContext('2d');
+//   canvas.width = cols;
+//   canvas.height = rows;
 
-  ctx.fillStyle = 'white';
-  ctx.font = 'bold 10px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+//   ctx.fillStyle = 'white';
+//   ctx.font = 'bold 10px sans-serif';
+//   ctx.textAlign = 'center';
+//   ctx.fillText(message, canvas.width / 2, canvas.height / 2);
 
-  const imageData = ctx.getImageData(0, 0, cols, rows).data;
+//   const imageData = ctx.getImageData(0, 0, cols, rows).data;
 
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      const pixelIndex = (row * cols + col);
-      const dataIndex = pixelIndex * 4;
-      const brightness = imageData[dataIndex]; // just R is enough for white text
+//   for (let row = 0; row < rows; row++) {
+//     for (let col = 0; col < cols; col++) {
+//       const pixelIndex = (row * cols + col);
+//       const dataIndex = pixelIndex * 4;
+//       const brightness = imageData[dataIndex]; // just R is enough for white text
 
-      if (brightness > 100) {
-        dots[pixelIndex].style.backgroundColor = 'yellow';
-        dots[pixelIndex].style.animation = 'blink 1s infinite';
-      }
-    }
-  }
-}
+//       if (brightness > 100) {
+//         dots[pixelIndex].style.backgroundColor = 'yellow';
+//         dots[pixelIndex].style.animation = 'blink 1s infinite';
+//       }
+//     }
+//   }
+// }
 
 function updatePattern() {
   clearInterval(interval);
@@ -215,10 +215,10 @@ document.getElementById('pattern15Btn').addEventListener('click', () => {
   currentPattern = 14;
   updatePattern();
 });
-document.getElementById('sinhalaWishBtn').addEventListener('click', () => {
-  currentPattern = 15;
-  updatePattern();
-});
+// document.getElementById('sinhalaWishBtn').addEventListener('click', () => {
+//   currentPattern = 15;
+//   updatePattern();
+// });
 
 let isAnimationRunning = false; // Flag to check if the animation is running
 
