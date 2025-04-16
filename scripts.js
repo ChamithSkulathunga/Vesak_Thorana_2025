@@ -1,6 +1,11 @@
 const pixelContainers = document.querySelectorAll('.pixel-container');
-const speedSlider = document.getElementById('speedSlider');
-const speedValue = document.getElementById('speedValue');
+const speedSlider = document.createElement("input");
+speedSlider.type = "range";
+speedSlider.min = 1;
+speedSlider.max = 10;
+speedSlider.value = 1;
+const speedValue = document.createElement("span");
+speedValue.textContent = "1s";
 
 const patterns = [
   'pattern1', 'pattern2', 'pattern3', 'pattern4', 'pattern5',
@@ -12,12 +17,17 @@ let currentPattern = 0;
 let currentColorIndex = 0;
 const pattern1Colors = ['white', 'green', 'yellow', 'blue', 'red'];
 let interval;
+let autoLoopInterval;
+
+const audio = new Audio("audio/ස්වර්ණ මයුර ජාතකය.mp3");
+audio.loop = true;
+
+let isMuted = false;
 
 function applyBackground() {
   const bgShapes = document.querySelectorAll('.bgshape');
   bgShapes.forEach((bgShape, index) => {
-    // Set different backgrounds for each .bgshape element if needed
-    bgShape.style.background = `linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.4))`; // Example
+    bgShape.style.background = `linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.4))`;
   });
 }
 
@@ -25,7 +35,6 @@ function createGrid() {
   pixelContainers.forEach(container => {
     const shapeWidth = container.clientWidth;
     const shapeHeight = container.clientHeight;
-
     const dotSize = 13;
     const gap = 1;
     const totalSize = dotSize + gap;
@@ -91,54 +100,8 @@ function applyCSSPattern(patternName, duration) {
   });
 }
 
-// function applySinhalaWishPattern() {
-//   const dots = document.querySelectorAll('.dot');
-//   const cols = Math.floor(Math.sqrt(dots.length)); // use same logic as grid creation
-//   const rows = Math.floor(dots.length / cols);
-
-//   const message = 'සුභ වෙසක් මංගල්‍යයක් වේවා';
-
-//   // Clear grid
-//   dots.forEach(dot => {
-//     dot.style.animation = 'none';
-//     dot.style.backgroundColor = 'black';
-//   });
-
-//   // Use Canvas to draw text and map pixels to grid
-//   const canvas = document.createElement('canvas');
-//   const ctx = canvas.getContext('2d');
-//   canvas.width = cols;
-//   canvas.height = rows;
-
-//   ctx.fillStyle = 'white';
-//   ctx.font = 'bold 10px sans-serif';
-//   ctx.textAlign = 'center';
-//   ctx.fillText(message, canvas.width / 2, canvas.height / 2);
-
-//   const imageData = ctx.getImageData(0, 0, cols, rows).data;
-
-//   for (let row = 0; row < rows; row++) {
-//     for (let col = 0; col < cols; col++) {
-//       const pixelIndex = (row * cols + col);
-//       const dataIndex = pixelIndex * 4;
-//       const brightness = imageData[dataIndex]; // just R is enough for white text
-
-//       if (brightness > 100) {
-//         dots[pixelIndex].style.backgroundColor = 'yellow';
-//         dots[pixelIndex].style.animation = 'blink 1s infinite';
-//       }
-//     }
-//   }
-// }
-
 function updatePattern() {
   clearInterval(interval);
-  const dots = document.querySelectorAll('.dot');
-
-  if (patterns[currentPattern] === 'sinhalaWish') {
-    applySinhalaWishPattern();
-    return;
-  }
 
   if (patterns[currentPattern] === 'pattern1') {
     currentColorIndex = 0;
@@ -148,139 +111,104 @@ function updatePattern() {
     patterns[currentPattern] === 'pattern5' ||
     patterns[currentPattern] === 'pattern10'
   ) {
-    applyFixedSpeedPattern(patterns[currentPattern], 5);
+    applyCSSPattern(patterns[currentPattern], 5);
   } else {
     applyCSSPattern(patterns[currentPattern], speedSlider.value);
   }
 }
 
+function startAutoPatternLoop() {
+  updatePattern();
+  autoLoopInterval = setInterval(() => {
+    currentPattern = (currentPattern + 1) % patterns.length;
+    updatePattern();
+  }, speedSlider.value * 1000 * 5);
+}
 
-const soundButton = document.getElementById("soundButton");
-const audio = new Audio("audio/ස්වර්ණ මයුර ජාතකය.mp3"); // Replace with your actual file
-audio.loop = true; // optional: loops the sound
-
-let isMuted = false;
-
-// Autoplay on page load
-window.addEventListener("DOMContentLoaded", () => {
-  audio.play().catch(err => {
-    console.log("Autoplay blocked by browser. User interaction required.");
+function stopAutoPatternLoop() {
+  clearInterval(interval);
+  clearInterval(autoLoopInterval);
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach(dot => {
+    dot.style.backgroundColor = 'black';
+    dot.style.animation = 'none';
   });
-});
-
-function toggleSound() {
-  if (isMuted) {
-    audio.play();
-    soundButton.src = "Image/sound.png";
-  } else {
-    audio.pause();
-    soundButton.src = "image/sound-cut.png";
-  }
-  isMuted = !isMuted;
 }
 
 
 
-// Button Event Listeners
-document.getElementById('pattern1Btn').addEventListener('click', () => {
-  currentPattern = 0;
-  updatePattern();
-});
-document.getElementById('pattern2Btn').addEventListener('click', () => {
-  currentPattern = 1;
-  updatePattern();
-});
-document.getElementById('pattern3Btn').addEventListener('click', () => {
-  currentPattern = 2;
-  updatePattern();
-});
-document.getElementById('pattern4Btn').addEventListener('click', () => {
-  currentPattern = 3;
-  updatePattern();
-});
-document.getElementById('pattern5Btn').addEventListener('click', () => {
-  currentPattern = 4;
-  updatePattern();
-});
-document.getElementById('pattern6Btn').addEventListener('click', () => {
-  currentPattern = 5;
-  updatePattern();
-});
-document.getElementById('pattern7Btn').addEventListener('click', () => {
-  currentPattern = 6;
-  updatePattern();
-});
-document.getElementById('pattern8Btn').addEventListener('click', () => {
-  currentPattern = 7;
-  updatePattern();
-});
-document.getElementById('pattern9Btn').addEventListener('click', () => {
-  currentPattern = 8;
-  updatePattern();
-});
-document.getElementById('pattern10Btn').addEventListener('click', () => {
-  currentPattern = 9;
-  updatePattern();
-});
-document.getElementById('pattern11Btn').addEventListener('click', () => {
-  currentPattern = 10;
-  updatePattern();
-});
-document.getElementById('pattern12Btn').addEventListener('click', () => {
-  currentPattern = 11;
-  updatePattern();
-});
-document.getElementById('pattern13Btn').addEventListener('click', () => {
-  currentPattern = 12;
-  updatePattern();
-});
-document.getElementById('pattern14Btn').addEventListener('click', () => {
-  currentPattern = 13;
-  updatePattern();
-});
-document.getElementById('pattern15Btn').addEventListener('click', () => {
-  currentPattern = 14;
-  updatePattern();
-});
-// document.getElementById('sinhalaWishBtn').addEventListener('click', () => {
-//   currentPattern = 15;
-//   updatePattern();
-// });
 
-let isAnimationRunning = false; // Flag to check if the animation is running
+
+
+
+let hasAudioStarted = false;
+
+function toggleSound() {
+  if (!hasAudioStarted || audio.paused) {
+    audio.muted = false;
+    audio.play().then(() => {
+      hasAudioStarted = true; // Track that we've started the audio
+      console.log("Audio started.");
+    }).catch(err => {
+      console.log("Audio play failed:", err);
+    });
+  } else {
+    audio.pause();
+    console.log("Audio paused.");
+  }
+}
+
+
+
+document.getElementById("startText").addEventListener("click", () => {
+  const introScreen = document.getElementById("introScreen");
+  introScreen.style.display = "none"; // Hide blue overlay
+  document.querySelector(".controls").style.display = "block"; // Show control buttons
+  startWithSound(); // Start the main lights and audio
+});
+
+
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded.");
+  applyBackground();
+  createGrid();
+  document.getElementById('onBtn').classList.add('active');
+});
+
+let isAnimationRunning = false;
 
 function startAnimation() {
   if (!isAnimationRunning) {
     isAnimationRunning = true;
-    updatePattern(); // Start the animation when On button is clicked
+    currentPattern = 0;
+    startAutoPatternLoop();
   }
+  document.getElementById('onBtn').classList.add('active');
+}
+
+function startWithSound() {
+  startAnimation();
+  toggleSound();  // Ensure sound is toggled when starting
 }
 
 function stopAnimation() {
-  if (isAnimationRunning || interval) {
+  if (isAnimationRunning) {
     isAnimationRunning = false;
-    clearInterval(interval); // Stop the animation
-
-    // Set all dot colors to black and stop animations
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => {
-      dot.style.backgroundColor = 'black'; // Set background color to black for all dots
-      dot.style.animation = 'none'; // Stop any animations
-    });
+    stopAutoPatternLoop();
   }
+  document.getElementById('offBtn').classList.add('active');
+  document.getElementById('onBtn').classList.remove('active');
 }
 
-// Button Event Listeners for On/Off buttons
-document.getElementById('onBtn').addEventListener('click', startAnimation); // Start animation on "On" button click
-document.getElementById('offBtn').addEventListener('click', stopAnimation); // Stop animation on "Off" button click
+document.getElementById('onBtn').addEventListener('click', startWithSound);
 
 speedSlider.addEventListener('input', () => {
   speedValue.textContent = `${speedSlider.value}s`;
-  updatePattern();
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-  applyBackground(); // Apply the background on DOM load
-  createGrid();
-  updatePattern();
+  if (isAnimationRunning) {
+    stopAutoPatternLoop();
+    startAutoPatternLoop();
+  }
 });
