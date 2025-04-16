@@ -141,22 +141,29 @@ function stopAutoPatternLoop() {
 
 
 
-let hasAudioStarted = false;
+// let hasAudioStarted = false;
 
 function toggleSound() {
-  if (!hasAudioStarted || audio.paused) {
-    audio.muted = false;
-    audio.play().then(() => {
-      hasAudioStarted = true; // Track that we've started the audio
-      console.log("Audio started.");
-    }).catch(err => {
-      console.log("Audio play failed:", err);
-    });
+  const audio = document.getElementById("myAudio");
+  const btn = document.getElementById("soundButton");
+
+  if (!audio) {
+    console.error("Audio element not found!");
+    return;
+  }
+
+  if (audio.paused) {
+    audio.play();
+    btn.classList.remove("fa-volume-mute");
+    btn.classList.add("fa-volume-up");
   } else {
     audio.pause();
-    console.log("Audio paused.");
+    btn.classList.remove("fa-volume-up");
+    btn.classList.add("fa-volume-mute");
   }
 }
+
+
 
 
 
@@ -170,16 +177,22 @@ document.getElementById("startText").addEventListener("click", () => {
 function toggleFullScreen() {
   const doc = window.document;
   const docEl = doc.documentElement;
+  const fullscreenIcon = document.getElementById("fullscreenIcon");
 
   const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen;
   const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
 
   if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
     requestFullScreen.call(docEl);
+    fullscreenIcon.classList.remove("fa-expand");
+    fullscreenIcon.classList.add("fa-compress");
   } else {
     cancelFullScreen.call(doc);
+    fullscreenIcon.classList.remove("fa-compress");
+    fullscreenIcon.classList.add("fa-expand");
   }
 }
+
 
 
 
