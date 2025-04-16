@@ -23,8 +23,8 @@
   font-size: 40px;
   font-family: 'Noto Sans Sinhala', 'Iskoola Pota', serif;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 80px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   overflow: hidden;
   color: aliceblue;
 }
@@ -92,7 +92,7 @@
 .thoran-wrapper {
   position: relative;
   width: 900px;
-  height: 900px;
+  height: 880px;
   margin: 0 auto;
 }
 
