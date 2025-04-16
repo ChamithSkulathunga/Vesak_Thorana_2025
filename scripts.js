@@ -154,6 +154,33 @@ function updatePattern() {
   }
 }
 
+
+const soundButton = document.getElementById("soundButton");
+const audio = new Audio("audio/ස්වර්ණ මයුර ජාතකය.mp3"); // Replace with your actual file
+audio.loop = true; // optional: loops the sound
+
+let isMuted = false;
+
+// Autoplay on page load
+window.addEventListener("DOMContentLoaded", () => {
+  audio.play().catch(err => {
+    console.log("Autoplay blocked by browser. User interaction required.");
+  });
+});
+
+function toggleSound() {
+  if (isMuted) {
+    audio.play();
+    soundButton.src = "Image/sound.png";
+  } else {
+    audio.pause();
+    soundButton.src = "image/sound-cut.png";
+  }
+  isMuted = !isMuted;
+}
+
+
+
 // Button Event Listeners
 document.getElementById('pattern1Btn').addEventListener('click', () => {
   currentPattern = 0;
