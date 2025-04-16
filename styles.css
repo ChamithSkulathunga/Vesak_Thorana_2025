@@ -20,7 +20,7 @@
   /* 🔁 Replace background image on small screens */
   @media (max-width: 768px) {
     body {
-      background-image: url('./Image/bg2.jpg');
+      background-image: url('https://raw.githubusercontent.com/ChamithSkulathunga/Vesak_Thorana_2025/refs/heads/main/Image/bg2.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: scroll; /* to avoid mobile issues */
@@ -29,7 +29,7 @@
 
   @media (max-width: 480px) {
     body {
-      background-image: url('./Image//bg3.jpg'); /* replace with your mobile bg image */
+      background-image: url('https://raw.githubusercontent.com/ChamithSkulathunga/Vesak_Thorana_2025/refs/heads/main/Image/bg3.jpg'); /* replace with your mobile bg image */
       background-size: cover;
       background-position: center;
       background-attachment: scroll; /* better on mobile */
