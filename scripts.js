@@ -135,12 +135,6 @@ function stopAutoPatternLoop() {
   });
 }
 
-
-
-
-
-
-
 // let hasAudioStarted = false;
 
 function toggleSound() {
@@ -162,9 +156,6 @@ function toggleSound() {
     btn.classList.add("fa-volume-mute");
   }
 }
-
-
-
 
 
 document.getElementById("startText").addEventListener("click", () => {
@@ -192,9 +183,6 @@ function toggleFullScreen() {
     fullscreenIcon.classList.add("fa-expand");
   }
 }
-
-
-
 
 window.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded.");
@@ -226,6 +214,10 @@ function stopAnimation() {
   }
   document.getElementById('offBtn').classList.add('active');
   document.getElementById('onBtn').classList.remove('active');
+}
+
+function goBack() {
+  window.history.back();
 }
 
 document.getElementById('onBtn').addEventListener('click', startWithSound);

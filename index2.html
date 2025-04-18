@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>වෙසක් තොරන - 2025 - ස්වර්ණ මයුර ජාතකය</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./thorana2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+  <!-- Bootstrap JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+</head>
+
+<body style="background-color: #111;">
+
+  <!-- Main Container for Pixel Grid -->
+
+
+  <div class="containe">
+    <div class="row">
+      <div class="col-12" style="display: flex;  justify-content: center; align-items: flex-start;">
+        <div class="sinhala-letter mt-5">සුභ වෙසක් මංගල්‍යයක් වේවා !        </div>
+      </div>
+
+      <div class="col-12 mt-5" style="display: flex;  justify-content: space-evenly; gap: 150px; ">
+
+        <audio id="backgroundAudio" autoplay loop>
+          <source src="audio" type="audi/ස්වර්ණ මයුර ජාතකය.mp3">
+          Your browser does not support the audio element.
+        </audio>
+
+        <audio id="myAudio" src="audio/ස්වර්ණ මයුර ජාතකය.mp3" loop></audio>
+        <i class="fas fa-volume-up sound-toggle" onclick="toggleSound()" id="soundButton" style="cursor: pointer;"></i>
+
+        <i class="fas fa-expand screen-toggle" onclick="toggleFullScreen()" style="font-size: 30px; cursor: pointer;" id="fullscreenIcon"></i>
+
+        <i class="fas fa-arrow-left back-toggle" onclick="goBack()" style="font-size: 30px; cursor: pointer;" id="backButton"></i>
+
+
+
+        <div class="thoran-wrapper">
+          <img class="all leaf" src="./Image/Flag_L.gif" style=" position: absolute;
+          
+                    top: 0px;
+                    
+                    left: 130px;
+                    
+                    width: 108px;
+                    
+                    height: 98px;
+                    
+                    z-index: 2;">
+
+
+          <img class="all leaf" src="./Image/Flag_R.gif" style=" position: absolute;
+
+top: 0px;
+
+left: 665px;
+
+width: 108px;
+
+height: 98px;
+
+z-index: 2;">
+
+
+          <div class="bottom-rectangle">
+            <div class="pixel-container">
+             
+                <!-- div class="col-12" style="display: flex;  justify-content: center; align-items: flex-start;"> -->
+        <div class="sinhala-letter banner-text"> ස්වර්ණ මයුර ජාතකය</div>
+     
+            </div>
+          </div>
+
+
+
+          <div class="circle triangle">
+            <div class="pixel-container">
+              <img src="./Image/2/buddha.png" alt="img1" srcset="">
+            </div>
+          </div>
+
+          <div class="circle small-circle circle-1">
+            <div class="pixel-container">
+              <img src="" alt="img1" srcset="">
+            </div>
+          </div>
+          <div class="circle small-circle circle-2">
+            <div class="pixel-container">
+              <img src="" alt="img2" srcset="">
+            </div>
+          </div>
+          <div class="circle small-circle circle-3">
+            <div class="pixel-container">
+              <img src="" alt="img3" srcset="">
+            </div>
+          </div>
+          <div class="circle small-rectangle rectangle-4">
+            <div class="pixel-container">
+              <img src="./Image/2/4.gif" alt="img4" srcset="">
+            </div>
+          </div>
+          <div class="circle small-rectangle rectangle-5">
+            <div class="pixel-container">
+              <img src="./Image//2/5.gif" alt="img5" srcset="">
+            </div>
+          </div>
+          <div class="circle small-rectangle rectangle-6">
+            <div class="pixel-container">
+              <img src="./Image/2/6.gif" alt="img6" srcset="">
+            </div>
+          </div>
+          <div class="circle small-circle circle-7">
+            <div class="pixel-container">
+              <img src="" alt="img7" srcset="">
+            </div>
+          </div>
+          <div class="circle small-circle circle-8">
+            <div class="pixel-container">
+              <img src="" alt="img8" srcset="">
+            </div>
+          </div>
+
+          <div class="circle small-circle circle-9">
+            <div class="pixel-container">
+              <img src="" alt="img9" srcset="">
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div id="introScreen" class="intro-screen">
+    <h1 id="startText" >නැරඹීම සඳහා මෙතන ඔබන්න</h1>
+  </div>
+  
+  <div class="controls" style="display: none;">
+    <button id="onBtn" onclick="startWithSound()" style="display: none;"></button>
+  </div>
+  
+  
+  
+  
+  
+    
+  
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

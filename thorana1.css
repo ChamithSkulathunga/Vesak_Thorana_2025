@@ -19,18 +19,6 @@
 }
 
 
-.sinhala-letter {
-  font-size: 40px;
-  font-family: 'Noto Sans Sinhala', 'Iskoola Pota', serif;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  overflow: hidden;
-  color: aliceblue;
-}
-
-
-
 .shape {
   width: 120px;
   height: 120px;
@@ -67,17 +55,7 @@
   margin: 20px;
 }
 
-.star {
-  width: 200px;
-  height: 200px;
-  background: conic-gradient(from 0deg, #fff700, #ff8c00, #fff700);
-  clip-path: polygon(
-    50% 0%, 61% 35%, 98% 35%,
-    68% 57%, 79% 91%, 50% 70%,
-    21% 91%, 32% 57%, 2% 35%,
-    39% 35%
-  );
-}
+
 
 .petal {
   width: 120px;
@@ -211,8 +189,8 @@
 }
 
 
-.bottom-img {
-  height: 80px; /* Adjust height as needed */
+/* .bottom-img {
+  height: 80px; 
   max-width: 90%;
   object-fit: contain;
-}
+} */
