@@ -24,7 +24,7 @@
   <div class="containe">
     <div class="row">
       <div class="col-12" style="display: flex;  justify-content: center; align-items: flex-start;">
-        <div class="sinhala-letter mt-5">සුභ වෙසක් මංගල්‍යයක් වේවා !        </div>
+        <div class="sinhala-letter mt-5">සුභ වෙසක් මංගල්‍යයක් වේවා ! </div>
       </div>
 
       <div class="col-12 mt-5" style="display: flex;  justify-content: space-evenly; gap: 150px; ">
@@ -35,11 +35,13 @@
         </audio>
 
         <audio id="myAudio" src="audio/ස්වර්ණ මයුර ජාතකය.mp3" loop></audio>
-        <i class="fas fa-volume-up sound-toggle" onclick="toggleSound()" id="soundButton" style="cursor: pointer;"></i>
+        <i class="fas fa-volume-up sound-toggle" onclick="toggleSound()" id="soundButton" style="cursor: pointer; display:flex;"></i>
 
-        <i class="fas fa-expand screen-toggle" onclick="toggleFullScreen()" style="font-size: 30px; cursor: pointer;" id="fullscreenIcon"></i>
+        <i class="fas fa-expand screen-toggle" onclick="toggleFullScreen()" style="font-size: 30px; cursor: pointer;"
+          id="fullscreenIcon"></i>
 
-        <i class="fas fa-arrow-left back-toggle" onclick="goBack()" style="font-size: 30px; cursor: pointer;" id="backButton"></i>
+        <i class="fas fa-arrow-left back-toggle" onclick="goBack()" style="font-size: 30px; cursor: pointer;"
+          id="backButton"></i>
 
 
 
@@ -60,7 +62,7 @@
 
           <img class="all leaf" src="./Image/Flag_R.gif" style=" position: absolute;
 
-top: 0px;
+top: 7px;
 
 left: 665px;
 
@@ -73,10 +75,10 @@ z-index: 2;">
 
           <div class="bottom-rectangle">
             <div class="pixel-container">
-             
-                <!-- div class="col-12" style="display: flex;  justify-content: center; align-items: flex-start;"> -->
-        <div class="sinhala-letter banner-text"> ස්වර්ණ මයුර ජාතකය</div>
-     
+
+              <!-- div class="col-12" style="display: flex;  justify-content: center; align-items: flex-start;"> -->
+              <div class="sinhala-letter banner-text"> ස්වර්ණ මයුර ජාතකය</div>
+
             </div>
           </div>
 
@@ -144,18 +146,18 @@ z-index: 2;">
 
 
   <div id="introScreen" class="intro-screen">
-    <h1 id="startText" >නැරඹීම සඳහා මෙතන ඔබන්න</h1>
+    <h1 id="startText">නැරඹීම සඳහා මෙතන ඔබන්න</h1>
   </div>
-  
+
   <div class="controls" style="display: none;">
     <button id="onBtn" onclick="startWithSound()" style="display: none;"></button>
   </div>
-  
-  
-  
-  
-  
-    <!-- <button id="pattern1Btn">Pattern 1</button>
+
+
+
+
+
+  <!-- <button id="pattern1Btn">Pattern 1</button>
     <button id="pattern2Btn">Pattern 2</button>
     <button id="pattern3Btn">Pattern 3</button>
     <button id="pattern4Btn">Pattern 4</button>
@@ -170,14 +172,14 @@ z-index: 2;">
     <button id="pattern13Btn">Pattern 13</button>
     <button id="pattern14Btn">Pattern 14</button>
     <button id="pattern15Btn">Pattern 15</button> -->
-    <!-- <button id="sinhalaWishBtn">Sinhala Wish</button> -->
+  <!-- <button id="sinhalaWishBtn">Sinhala Wish</button> -->
 
-    <!-- <div class="speed-control">
+  <!-- <div class="speed-control">
       <label class="label">Speed:</label>
       <input type="range" id="speedSlider" min="1" max="10" value="1">
       <span id="speedValue">1s</span>
     </div> -->
-  
+
 
   <script src="scripts.js"></script>
 </body>
