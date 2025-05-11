@@ -128,7 +128,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   font-weight: 600;
 }
